@@ -9,7 +9,7 @@ const getAllProjects = asyncHandler(async (req, res) => {
       msg: `No rows in the table`,
     });
   }
-  res.json(rows);
+  res.json(rows); 
 });
 
 // to get a project by id

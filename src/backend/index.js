@@ -13,17 +13,18 @@ sequelize.sync({ alter: true });
 const app = express();
 
 app.use(session({
-  secret: 'ASecret Key',
+  secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: true,
-  // store: 'toanappropriateplace', 
+  saveUninitialized: false,
+  store: 'seequelize',
   cookie: {
       maxAge: 3 * 60 * 60 * 24
   }
 }))
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
+app.use(passport.authenticate('session'));
 
 app.use(router)
 

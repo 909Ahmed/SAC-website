@@ -5,7 +5,7 @@ const passport = require("passport");
 //routes 
 
 const {successRedirect, failureRedirect} = {
-  successRedirect: 'http://localhost:3000/users/', 
+  successRedirect: '/', 
   failureRedirect: '/login'
 };
 
@@ -21,19 +21,22 @@ router.get("/google/callback",
   
   passport.authenticate("google", {
     
-    successRedirect: successRedirect,    
+    successRedirect: successRedirect,
     failureRedirect: failureRedirect 
 
   }),
 
 );
 
-router.post('/logout', async (req, res) =>{
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
 
-  req.session = null;
-  req.logout();
-  res.redirect('/users'); // change it
-
-})
+router.post('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
 
 module.exports = router;
