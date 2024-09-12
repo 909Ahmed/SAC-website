@@ -3,30 +3,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 const router = require('./routes/home.routes');
 const session = require('express-session');
-const passport = require('passport');
-require('./middlewares/googleauth');
-
 
 const { sequelize } = require('./models/database')
 sequelize.sync({ alter: true });
 
 const app = express();
-
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false,
-  store: 'seequelize',
-  cookie: {
-      maxAge: 3 * 60 * 60 * 24
-  }
-}))
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-app.use(passport.authenticate('session'));
-
-app.use(router)
+app.use(router);
 
 // Start the server 
 const port = process.env.PORT || 3000;
