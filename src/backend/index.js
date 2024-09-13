@@ -8,6 +8,7 @@ const { sequelize } = require('./models/database')
 sequelize.sync({ alter: true });
 
 const app = express();
+app.use(express.json());
 app.use(router);
 
 // Start the server 
