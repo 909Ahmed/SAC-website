@@ -8,8 +8,14 @@ const { sequelize } = require('./models/database')
 sequelize.sync({ alter: true });
 
 const app = express();
+app.get('/' , async (req, res) => {
+
+  res.send("welcome");
+
+});
 app.use(express.json());
 app.use(router);
+
 
 // Start the server 
 const port = process.env.PORT || 3000;
