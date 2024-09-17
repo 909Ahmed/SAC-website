@@ -5,6 +5,7 @@ const { deleteAnnouncement_attachmentByAnnouncement_Id } = require("./announceme
 // to fetch all announcements
 const fetchAllAnnouncements = asyncHandler(async (req, res) => {
   // using findAll method in sequelize
+  console.log('asdffad');
   const rows = await Announcement.findAll();
   res.json(rows);
 });//TODO: Add attachements to the announcement

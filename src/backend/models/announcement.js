@@ -18,10 +18,7 @@ Announcement = sequelize.define("Announcement", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  user_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
+  
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
@@ -33,8 +30,5 @@ Announcement = sequelize.define("Announcement", {
     allowNull: false,
   },
 });
-
-Announcement.belongsTo(User, { foreignKey: "user_id" });
-User.hasMany(Announcement, { foreignKey: "user_id" });
 
 module.exports = { Announcement };

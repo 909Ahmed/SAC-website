@@ -12,8 +12,8 @@ const { isLoggedIn, authRole } = require("../controllers/auth.controllers");
 
 // routes 
 router.route("/").get(getAllProjects, isLoggedIn, authRole(["Admin", "Club Head", "Secretary"]));
-router.route("/getProject/:id").get(getSingleProject, isLoggedIn, authRole(["Admin", "Club Head", "Secretary"]));
-router.route("/postProject").post(postProject, isLoggedIn, authRole(["Admin", "Club Head", "Secretary"]));
+router.route("/:id").get(getSingleProject, isLoggedIn, authRole(["Admin", "Club Head", "Secretary"]));
+router.route("/postProject").post(postProject);
 router.route("/patchProject").patch(patchProject, isLoggedIn, authRole(["Admin", "Club Head", "Secretary"]));
 router.route("/delete/:id").delete(deleteProject, isLoggedIn, authRole(["Admin", "Club Head", "Secretary"]));
 

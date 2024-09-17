@@ -23,6 +23,7 @@ const createClub = asyncHandler(async (req, res) => {
   const clubData = req.body;
 
   // Create a new club in the database
+  console.log('afdsadf');
   const newClub = await Club.create(clubData);
   res.json(newClub);
 });
