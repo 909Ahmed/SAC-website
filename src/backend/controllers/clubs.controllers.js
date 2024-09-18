@@ -23,9 +23,13 @@ const createClub = asyncHandler(async (req, res) => {
   const clubData = req.body;
 
   // Create a new club in the database
-  console.log('afdsadf');
-  const newClub = await Club.create(clubData);
-  res.json(newClub);
+  try{
+    const newClub = await Club.create(clubData);
+    res.json(newClub);
+  }catch(error){
+    console.log(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 // Bulk insert clubs
@@ -61,11 +65,7 @@ const updateClub = asyncHandler(async (req, res) => {
 const deleteClubById = asyncHandler(async(req,res)=>{
   const Club_id = req.params.id ;
   try{
-    deleteExpenseByClub_Id(req,res) ;
-    deleteMembershipByClub_Id(req,res) ;
-    deleteThreadByClub_Id(req,res) ;
     await Club.destroy({where: {id: Club_id}});
-   
     res.status(200).json({ success: true, message: 'club deleted successfully'});
   }
   catch(error){

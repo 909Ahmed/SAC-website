@@ -7,7 +7,7 @@ const { deleteCommentByUser_Id } = require("./comments.controllers");
 
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-const JWT_SECRET = 'ASecretKey';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // to fetch all rows from users
 const createUser = asyncHandler(async (req, res) => {

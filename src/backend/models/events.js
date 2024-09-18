@@ -30,6 +30,7 @@ Event = sequelize.define("Event", {
     },
     start_date: {
         type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
         allowNull: false,
     },
 });
