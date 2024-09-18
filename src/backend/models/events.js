@@ -16,6 +16,14 @@ Event = sequelize.define("Event", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    logo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    venue: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     description: {
         type: DataTypes.STRING,
         allowNull: false,

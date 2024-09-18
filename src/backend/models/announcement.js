@@ -18,7 +18,14 @@ Announcement = sequelize.define("Announcement", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  
+  logo : {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  clubName: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
   created_at: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,

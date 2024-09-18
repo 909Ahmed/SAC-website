@@ -8,13 +8,33 @@ Club = sequelize.define("Club", {
     primaryKey: true,
     autoIncrement: true,
   },
+  clubName: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
   description: {
     type: DataTypes.STRING,
   },
-  budget: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
+  clubHeads: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: true,
   },
+  clubLeads: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: true,
+  },
+  clubEmail: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  contactNo: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  logo: {
+    type: DataTypes.STRING,
+    allowNull: true
+  }
 });
 
 module.exports = { Club };

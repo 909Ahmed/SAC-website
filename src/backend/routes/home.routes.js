@@ -16,9 +16,6 @@ router.use("/announcements", announcementRoutes);
 router.use("/clubs", clubRoutes);
 router.use("/projects", projectRoutes);
 router.use("/events", EventRoutes);
-router.use("/base", baseRoutes);
 router.use("/users", userRoutes);
-router.use("/threads", threadRoutes);
-// router.use("/auth", auth);
 
 module.exports = router;
