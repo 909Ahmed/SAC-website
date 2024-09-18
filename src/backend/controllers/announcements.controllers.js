@@ -61,7 +61,6 @@ const updateAnnouncement = asyncHandler(async (req, res) => {
 const deleteAnnouncementById = asyncHandler(async(req,res)=>{
   const Announcement_id = req.params.id ;
   try{
-    deleteAnnouncement_attachmentByAnnouncement_Id(req,res) ;
     await Announcement.destroy({where: {id: Announcement_id }});
     res.status(200).json({ success: true, message: 'Announcement deleted successfully'});
   }
